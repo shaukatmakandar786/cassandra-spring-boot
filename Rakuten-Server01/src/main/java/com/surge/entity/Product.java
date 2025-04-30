@@ -1,6 +1,8 @@
 package com.surge.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
@@ -12,6 +14,8 @@ import java.util.UUID;
         name = "Products",
         description = "Schema to hold Products information"
 )
+@Getter
+@Setter
 public class Product {
 
     @PrimaryKey
@@ -31,36 +35,4 @@ public class Product {
             description = "product price", example = "85000.00"
     )
     private Double price;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 }

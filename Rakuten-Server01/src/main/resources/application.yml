@@ -1,3 +1,6 @@
+server:
+  port: 5050
+
 spring:
   cassandra:
     contact-point: cassandra
@@ -5,6 +8,11 @@ spring:
     keyspace-name: my_keyspace
     schema-action: create-if-not-exists
     local-datacenter: datacenter1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/master/protocol/openid-connect/certs"
 logging:
   level:
     org:
