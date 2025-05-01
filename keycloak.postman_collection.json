@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "f9596dfc-8ed5-48ed-a506-d677b889df35",
+		"name": "keycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11871034"
+	},
+	"item": [
+		{
+			"name": "ClientCredential_AccessToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "Rakuten-Client-CC",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "YQfZiayXwYfmEMpfArX0OO8ReDGVyCAA",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveProductClientCredential",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "0HtvgZcgqIHw4WndjfNo19SEUXOlfeCG",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "Rakuten-Client-CC",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/master/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "clientCredentials_accessToken",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"description\": \"Samsung Gallexy Ultra\",\r\n    \"price\": \"110000.00\",\r\n    \"currentDate\": \"2025-04-24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveProductAuthCode",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "state",
+							"value": "wq67rf-jh78ff-ad48ka",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "xJy4S0EFeI9IXgX3Ph5wboP8TVYtSMN7",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "Rakuten-Client-AC",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/realms/master/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "authcode_accessToken",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "body",
+							"type": "string"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/master/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Samsung\",\r\n    \"description\": \"Samsung Gallexy Ultra\",\r\n    \"price\": \"110000.00\",\r\n    \"currentDate\": \"2025-04-24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5050/api/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5050/api/product/getAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5050",
+					"path": [
+						"api",
+						"product",
+						"getAll"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

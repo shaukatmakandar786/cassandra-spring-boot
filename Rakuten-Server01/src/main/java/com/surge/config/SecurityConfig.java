@@ -28,7 +28,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET).permitAll()
-                        .requestMatchers("/api/product/**").hasRole("PRODUCTS")
+                        .requestMatchers("/api/product/**").hasRole("PRODUCT")
                 )
                 .oauth2ResourceServer(oauth2 ->
                         oauth2.jwt(jwtSpec -> jwtSpec.jwtAuthenticationConverter(grantedAuthoritiesExtractor()))

@@ -13,6 +13,14 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: "http://localhost:8080/realms/master/protocol/openid-connect/certs"
+
+datastax-java-driver:
+  basic:
+    request:
+      timeout: 10s
+    connection:
+      init-query-timeout: 10s
+
 logging:
   level:
     org:
